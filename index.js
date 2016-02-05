@@ -1,9 +1,11 @@
 
+var fs = require('fs');
 var schedule  = require('node-schedule');
 var winston   = require('winston');
 var moment    = require('moment');
 var mysqlDump = require('mysqldump');
 
+var dumpPath = './dumps';
 var log = new (winston.Logger)({
   transports: [
     new (winston.transports.Console)({
@@ -20,16 +22,18 @@ var log = new (winston.Logger)({
 
 var dumping = function(){
 	mysqlDump({
-		host: '',
-		user: '',
+		host: 'localhost',
+		user: 'root',
 		password: '',
-		database: '',
-		dest:'./dumps/gajago-' + moment().format('YYYYMMDDhhmmss') + '.sql' // destination file 
+		database: 'gajago_local',
+		dest: dumpPath + '/gajago-' + moment().format('YYYYMMDDhhmmss') + '.sql' // destination file 
 	},function(err){
 		// create data.sql file; 
 		log.info('dumping callback'); 
 	});
 };
+
+if (!fs.existsSync(dumpPath)) fs.mkdirSync(dumpPath);	
 
 log.info('schedule start');
 
