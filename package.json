@@ -1,0 +1,30 @@
+{
+  "name": "node-backup",
+  "version": "0.0.1",
+  "description": "schedule backup by node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyunjun19/node-backup.git"
+  },
+  "keywords": [
+    "schedule",
+    "backup",
+    "node"
+  ],
+  "author": "HJ.Park",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hyunjun19/node-backup/issues"
+  },
+  "homepage": "https://github.com/hyunjun19/node-backup#readme",
+  "devDependencies": {
+    "moment": "^2.11.2",
+    "mysqldump": "^1.0.2",
+    "node-schedule": "^1.0.0",
+    "winston": "^2.1.1"
+  }
+}
